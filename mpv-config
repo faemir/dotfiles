@@ -3,13 +3,36 @@ msgcolor=yes
 
 vo=vdpau,
 hwdec=vdpau
-hqscaling=9
+
+# multithreaded decoding of H264/MPEG-1/2 (valid: 0-16)
+vd-lavc-threads=2
+
+# prefer using six channels audio
+channels=2
+
+# set the window title using the media filename, when not set with --title.
+title="${filename}"
+
+# disable screensaver
+stop-screensaver="yes"
+
+# correct pitch when speed is faster or slower than 1.0
+af=scaletempo
+
+# allow to seek in a file which is still downloading whilst watching it
+idx=yes
 
 osd-bar-align-y=0
 osd-bar-h=7
 osd-border-size=1
 osd-color='#CCFFFFFF'
 osd-border-color='#333333'
+
+
+# profile to down-mixing six channels audio to two channels
+# use -profile 6to2 to activate
+#[6to2]
+af-add=pan=2:0.7:0:0:0.7:0.5:0:0:0.5:0.6:0.6:0:0
 
 embeddedfonts=yes
 ass-force-style=Kerning=yes
